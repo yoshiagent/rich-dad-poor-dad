@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>富爸爸 窮爸爸｜重點整理</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #080e18;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #0f2040 0%, #0d1a2f 100%);
+      border-bottom: 2px solid rgba(59,130,246,0.4);
+      padding: 48px 24px 40px;
+      text-align: center;
+    }
+    header .label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #3b82f6;
+      margin-bottom: 12px;
+    }
+    header h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 800;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+    header h1 span { color: #fb923c; }
+    header .subtitle {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-bottom: 20px;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .tag {
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.35);
+      color: #93c5fd;
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── Layout ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    /* ── Section titles ── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 48px 0 20px;
+    }
+    .section-title .icon {
+      width: 36px; height: 36px;
+      background: rgba(59,130,246,0.2);
+      border: 1px solid rgba(59,130,246,0.4);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .section-title .line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(59,130,246,0.4), transparent);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: #131f2e;
+      border: 1px solid #2d3f55;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #3b82f6;
+      margin-bottom: 12px;
+    }
+    .card ul, .card ol {
+      padding-left: 20px;
+    }
+    .card li {
+      color: #e2e8f0;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .card li:last-child { margin-bottom: 0; }
+    .card p { font-size: 15px; color: #cbd5e1; }
+
+    /* ── Comparison table ── */
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) { .compare-grid { grid-template-columns: 1fr; } }
+
+    .compare-card {
+      background: #131f2e;
+      border: 1px solid #2d3f55;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .compare-card.poor { border-top: 3px solid #ef4444; }
+    .compare-card.rich  { border-top: 3px solid #22c55e; }
+
+    .compare-card .who {
+      display: flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 15px;
+      margin-bottom: 14px;
+    }
+    .compare-card.poor .who { color: #f87171; }
+    .compare-card.rich  .who { color: #4ade80; }
+
+    .compare-card ul { padding-left: 18px; }
+    .compare-card li { font-size: 14px; color: #cbd5e1; margin-bottom: 7px; }
+
+    /* ── Callout ── */
+    .callout {
+      background: #0f2040;
+      border: 1px solid rgba(59,130,246,0.3);
+      border-left: 4px solid #3b82f6;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      color: #93c5fd;
+      font-size: 15px;
+    }
+    .callout strong { color: #bfdbfe; }
+
+    /* ── Lesson cards ── */
+    .lesson-card {
+      background: #131f2e;
+      border: 1px solid #2d3f55;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .lesson-num {
+      background: rgba(251,146,60,0.15);
+      border: 1px solid rgba(251,146,60,0.4);
+      color: #fb923c;
+      font-weight: 800;
+      font-size: 16px;
+      min-width: 40px; height: 40px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .lesson-body h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fb923c;
+      margin-bottom: 6px;
+    }
+    .lesson-body p { font-size: 14px; color: #cbd5e1; }
+
+    /* ── Cashflow diagram ── */
+    .cashflow-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 600px) { .cashflow-grid { grid-template-columns: 1fr; } }
+
+    .cf-box {
+      background: #131f2e;
+      border: 1px solid #2d3f55;
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .cf-box .cf-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .cf-box.poor .cf-title { color: #f87171; }
+    .cf-box.rich  .cf-title { color: #4ade80; }
+
+    .cf-row {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: #94a3b8;
+      margin-bottom: 6px;
+    }
+    .cf-row .arrow { color: #3b82f6; font-size: 16px; }
+    .cf-row.highlight { color: #e2e8f0; }
+
+    /* ── Obstacle pills ── */
+    .obstacle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .obstacle-item {
+      background: #131f2e;
+      border: 1px solid #2d3f55;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .obstacle-item .ob-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f87171;
+      margin-bottom: 6px;
+    }
+    .obstacle-item p { font-size: 13px; color: #94a3b8; }
+
+    /* ── Action list ── */
+    .action-list { list-style: none; padding: 0; }
+    .action-list li {
+      display: flex; gap: 10px;
+      font-size: 15px; color: #cbd5e1;
+      padding: 10px 0;
+      border-bottom: 1px solid #1e3148;
+    }
+    .action-list li:last-child { border-bottom: none; }
+    .action-list .check { color: #22c55e; flex-shrink: 0; }
+
+    /* ── Quote ── */
+    .quote {
+      text-align: center;
+      padding: 32px 24px;
+      background: linear-gradient(135deg, #0f2040, #0a1825);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 12px;
+      margin: 32px 0;
+    }
+    .quote p {
+      font-size: clamp(16px, 3vw, 22px);
+      font-style: italic;
+      color: #93c5fd;
+      margin-bottom: 8px;
+    }
+    .quote cite { font-size: 13px; color: #64748b; }
+
+    /* ── Footer ── */
+    footer {
+      background: #0d1a2f;
+      border-top: 1px solid #2d3f55;
+      text-align: center;
+      padding: 24px;
+      font-size: 13px;
+      color: #64748b;
+    }
+    footer a { color: #3b82f6; text-decoration: none; }
+
+    strong { color: #e2e8f0; }
+
+    /* ── ESBI Quadrant ── */
+    .esbi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+      background: #2d3f55;
+      border: 1px solid #2d3f55;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+    .esbi-cell {
+      background: #131f2e;
+      padding: 22px 20px;
+    }
+    .esbi-cell .esbi-letter {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .esbi-cell .esbi-name {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .esbi-cell ul { padding-left: 16px; }
+    .esbi-cell li { font-size: 13px; color: #94a3b8; margin-bottom: 5px; }
+    .esbi-cell.e .esbi-letter { color: #f87171; }
+    .esbi-cell.e .esbi-name  { color: #f87171; }
+    .esbi-cell.s .esbi-letter { color: #fb923c; }
+    .esbi-cell.s .esbi-name  { color: #fb923c; }
+    .esbi-cell.b .esbi-letter { color: #4ade80; }
+    .esbi-cell.b .esbi-name  { color: #4ade80; }
+    .esbi-cell.i .esbi-letter { color: #3b82f6; }
+    .esbi-cell.i .esbi-name  { color: #3b82f6; }
+    .esbi-axis {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .esbi-axis span { font-size: 12px; color: #64748b; padding: 4px 0; }
+    .esbi-axis span.active-left  { color: #f87171; }
+    .esbi-axis span.active-right { color: #4ade80; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+  <div class="label">書籍重點整理</div>
+  <h1>富爸爸 <span>窮爸爸</span></h1>
+  <div class="subtitle">Rich Dad Poor Dad｜Robert T. Kiyosaki 著</div>
+  <div class="tags">
+    <span class="tag">財務自由</span>
+    <span class="tag">投資觀念</span>
+    <span class="tag">現金流</span>
+    <span class="tag">資產 vs 負債</span>
+    <span class="tag">理財思維</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════ 本書核心概念 ══════ -->
+  <div class="section-title">
+    <div class="icon">💡</div>
+    <span>核心主張</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="callout">
+    <strong>「窮人和中產階級為錢工作；富人讓錢為他們工作。」</strong><br>
+    本書打破「努力工作就能致富」的傳統觀念，強調<strong>財務教育（Financial Education）</strong>才是脫離貧窮循環的關鍵。
+  </div>
+
+  <div class="card">
+    <h3>兩位父親的象徵意義</h3>
+    <ul>
+      <li><strong>窮爸爸</strong>（親生父親）：高學歷、穩定政府工作，相信「讀好書、找好工作」是成功唯一途徑，終生為錢擔憂</li>
+      <li><strong>富爸爸</strong>（好友的父親）：未完成高中學業，靠投資與建立事業積累財富，教導作者金錢運作的真相</li>
+      <li>兩者象徵<strong>思維模式（Mindset）</strong>的根本差異，而非出身差異</li>
+    </ul>
+  </div>
+
+  <!-- ══════ 思維比較 ══════ -->
+  <div class="section-title">
+    <div class="icon">⚖️</div>
+    <span>兩種思維的對比</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card poor">
+      <div class="who">❌ 窮爸爸思維</div>
+      <ul>
+        <li>「我付不起」（被動放棄）</li>
+        <li>「錢是萬惡之源」</li>
+        <li>「要存錢才安全」</li>
+        <li>為薪資工作一生</li>
+        <li>房子是最大的資產</li>
+        <li>努力工作換取穩定</li>
+        <li>稅金是義務，無法避免</li>
+        <li>學歷 = 成功</li>
+      </ul>
+    </div>
+    <div class="compare-card rich">
+      <div class="who">✅ 富爸爸思維</div>
+      <ul>
+        <li>「我如何才能負擔得起？」（主動提問）</li>
+        <li>「對錢的渴望是美德」</li>
+        <li>「讓錢為我工作」</li>
+        <li>建立能被動賺錢的系統</li>
+        <li>房子是負債，非資產</li>
+        <li>持續學習財務知識</li>
+        <li>善用公司結構合法節稅</li>
+        <li>財務智商（Financial IQ）= 成功</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══════ 六大核心課題 ══════ -->
+  <div class="section-title">
+    <div class="icon">📚</div>
+    <span>六大核心課題</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">1</div>
+    <div class="lesson-body">
+      <h3>富人不為錢工作</h3>
+      <p>大多數人因<strong>恐懼（Fear）</strong>與<strong>貪婪（Greed）</strong>的情緒驅使而工作。恐懼失業讓人不敢冒險，貪婪讓人追求加薪卻不思考如何讓錢自己賺錢。富人學會管理情緒，讓資產產生收入。</p>
+    </div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">2</div>
+    <div class="lesson-body">
+      <h3>為什麼要學習財務知識</h3>
+      <p><strong>資產（Asset）</strong>＝把錢放進你口袋的東西；<strong>負債（Liability）</strong>＝把錢從你口袋拿走的東西。大多數人以為房子、車子是資產，其實是負債。真正的財富來自持續累積能產生現金流的資產。</p>
+    </div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">3</div>
+    <div class="lesson-body">
+      <h3>關注自己的事業</h3>
+      <p>不要終生為別人（老闆）的事業工作。在本業之外，從小開始建立自己的<strong>資產項目（Asset Column）</strong>：股票、債券、房地產收租、版稅、能自動運作的小生意等。</p>
+    </div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">4</div>
+    <div class="lesson-body">
+      <h3>稅收的歷史與公司的力量</h3>
+      <p>有錢人善用<strong>公司法人（Corporation）</strong>結構：先用公司賺錢、支付支出，再課稅；而一般受薪族是先被課稅、再花剩下的錢。合法的稅務規劃是財務智商的一部分。</p>
+    </div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">5</div>
+    <div class="lesson-body">
+      <h3>富人創造金錢</h3>
+      <p>金錢是一種概念，不再與黃金掛勾（1971 年後）。富人透過<strong>創意（Creativity）</strong>與<strong>財務智商</strong>看到別人看不到的機會，用更少的錢或沒有自己的錢來創造財富。</p>
+    </div>
+  </div>
+
+  <div class="lesson-card">
+    <div class="lesson-num">6</div>
+    <div class="lesson-body">
+      <h3>工作是為了學習，不只是賺錢</h3>
+      <p>選擇工作時要問「這份工作能讓我學到什麼技能？」而非只看薪水。富人主動學習<strong>銷售、行銷、財務、法律、管理</strong>等複合技能，這些比單一專業更有價值。</p>
+    </div>
+  </div>
+
+  <!-- ══════ 資產 vs 負債 ══════ -->
+  <div class="section-title">
+    <div class="icon">💰</div>
+    <span>資產 vs 負債：現金流模式</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="callout">
+    書中最關鍵的公式：<strong>只購買能產生現金流入的資產，避免用收入去購買負債。</strong>
+  </div>
+
+  <div class="cashflow-grid">
+    <div class="cf-box poor">
+      <div class="cf-title">❌ 窮人 / 中產的現金流</div>
+      <div class="cf-row highlight"><span class="arrow">↓</span> 薪資收入</div>
+      <div class="cf-row"><span class="arrow">→</span> 扣稅</div>
+      <div class="cf-row"><span class="arrow">→</span> 生活費、房貸、車貸</div>
+      <div class="cf-row"><span class="arrow">→</span> 信用卡消費</div>
+      <div class="cf-row"><span class="arrow">→</span> 存款幾乎為零</div>
+      <div class="cf-row" style="color:#f87171;"><span class="arrow">↺</span> 永遠在「老鼠跑輪」中</div>
+    </div>
+    <div class="cf-box rich">
+      <div class="cf-title">✅ 富人的現金流</div>
+      <div class="cf-row highlight"><span class="arrow">↓</span> 資產產生的被動收入</div>
+      <div class="cf-row"><span class="arrow">→</span> 購買更多資產</div>
+      <div class="cf-row"><span class="arrow">→</span> 生活費由資產支付</div>
+      <div class="cf-row"><span class="arrow">→</span> 複利持續累積</div>
+      <div class="cf-row" style="color:#4ade80;"><span class="arrow">↑</span> 財務自由（Financial Freedom）</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>真正的「資產」舉例</h3>
+    <ul>
+      <li>出租房地產（每月產生正現金流）</li>
+      <li>股票、基金的股息（Dividend）收入</li>
+      <li>版稅（書籍、音樂、專利）</li>
+      <li>能自動運作、不需你親自出現的事業</li>
+      <li>票據、貸款（作為放款方收取利息）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>常見「偽資產」（實為負債）</h3>
+    <ul>
+      <li><strong>自住房屋</strong>：需支付房貸、稅金、維修費，不產生收入</li>
+      <li><strong>私家轎車</strong>：持續折舊、耗油、保險費</li>
+      <li><strong>奢侈品</strong>：手錶、名牌包，無法產生現金流</li>
+      <li><strong>消費型貸款</strong>：信用卡分期、個人貸款</li>
+    </ul>
+  </div>
+
+  <!-- ══════ 五大障礙 ══════ -->
+  <div class="section-title">
+    <div class="icon">🚧</div>
+    <span>阻礙財務自由的五大障礙</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="obstacle-grid">
+    <div class="obstacle-item">
+      <div class="ob-title">① 恐懼（Fear）</div>
+      <p>害怕失去錢，寧願什麼都不做。「失去」的痛苦遠大於「獲得」的喜悅，導致錯過機會。</p>
+    </div>
+    <div class="obstacle-item">
+      <div class="ob-title">② 憤世嫉俗（Cynicism）</div>
+      <p>「景氣不好」、「那不適合我」的雜音讓人陷入懷疑，停止行動。</p>
+    </div>
+    <div class="obstacle-item">
+      <div class="ob-title">③ 懶惰（Laziness）</div>
+      <p>以「忙碌」為藉口逃避財務問題。真正的懶惰是：忙到沒時間管理自己的財富。</p>
+    </div>
+    <div class="obstacle-item">
+      <div class="ob-title">④ 壞習慣（Bad Habits）</div>
+      <p>先付帳單給別人，最後才留錢給自己。富人習慣「先支付自己（Pay Yourself First）」。</p>
+    </div>
+    <div class="obstacle-item">
+      <div class="ob-title">⑤ 傲慢（Arrogance）</div>
+      <p>以為自己不懂的就是無關緊要的。拒絕學習財務、稅務知識，結果吃大虧。</p>
+    </div>
+  </div>
+
+  <!-- ══════ 財務智商 ══════ -->
+  <div class="section-title">
+    <div class="icon">🧠</div>
+    <span>財務智商（Financial IQ）的四大組成</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="card">
+    <ul>
+      <li><strong>會計（Accounting）</strong>：看懂財務報表、資產負債表、損益表</li>
+      <li><strong>投資（Investing）</strong>：讓錢生錢的策略，理解風險與報酬</li>
+      <li><strong>市場（Market Understanding）</strong>：供需法則、時機判斷、情緒管理</li>
+      <li><strong>法律（Law）</strong>：了解公司結構、稅務法規、合法保護財富的方式</li>
+    </ul>
+  </div>
+
+  <!-- ══════ 開始行動 ══════ -->
+  <div class="section-title">
+    <div class="icon">🚀</div>
+    <span>書中建議的行動步驟</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="card">
+    <ul class="action-list">
+      <li><span class="check">✓</span> 停止說「我負擔不起」，改問「我如何才能負擔得起？」</li>
+      <li><span class="check">✓</span> 開始學習閱讀財務報表，理解自己的錢去了哪裡</li>
+      <li><span class="check">✓</span> 每月先「支付自己」，強迫儲蓄後再繳其他費用</li>
+      <li><span class="check">✓</span> 把錢投入真正的資產（股票股息、房租收入），而非存銀行</li>
+      <li><span class="check">✓</span> 尋找並學習一項新技能：銷售、行銷、投資、法律任選其一</li>
+      <li><span class="check">✓</span> 找一位財務導師，或閱讀成功投資者的傳記</li>
+      <li><span class="check">✓</span> 研究是否需要成立公司，以合法方式節省稅負</li>
+      <li><span class="check">✓</span> 持續學習，財務教育是終身功課</li>
+    </ul>
+  </div>
+
+  <!-- ══════ 核心金句 ══════ -->
+  <div class="section-title">
+    <div class="icon">✍️</div>
+    <span>書中核心金句</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="quote">
+    <p>「The rich don't work for money. They make money work for them.」</p>
+    <cite>富人不為錢工作，他們讓錢為他們工作。</cite>
+  </div>
+
+  <div class="callout">
+    <strong>「你的房子不是資產。」</strong><br>
+    這句話顛覆了大多數人對財富最根本的誤解。當你的「資產」每個月從你口袋拿走更多錢時，它就是負債。
+  </div>
+
+  <div class="callout" style="border-left-color:#fb923c; border-color:rgba(251,146,60,0.3); color:#fdba74;">
+    <strong>「僱人的目的是讓比你聰明的人為你工作。」</strong><br>
+    建立系統與團隊，而非事事親力親為——這是擴大財富的關鍵思維。
+  </div>
+
+  <!-- ══════ ESBI 四象限 ══════ -->
+  <div class="section-title">
+    <div class="icon">🔲</div>
+    <span>ESBI 現金流四象限</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="callout">
+    ESBI 是《富爸爸系列》的核心架構，說明賺錢方式的四種身份。<strong>左側（E、S）靠出賣時間換錢；右側（B、I）靠系統與資本賺錢。</strong>財務自由的關鍵在於從左側遷移到右側。
+  </div>
+
+  <div class="esbi-axis">
+    <span class="active-left">← 左側：為系統工作</span>
+    <span class="active-right">右側：擁有系統 →</span>
+  </div>
+  <div class="esbi-grid">
+    <div class="esbi-cell e">
+      <div class="esbi-letter">E</div>
+      <div class="esbi-name">Employee｜受雇者</div>
+      <ul>
+        <li>靠薪資維生，為老闆工作</li>
+        <li>重視穩定、福利、保障</li>
+        <li>停止工作 = 停止收入</li>
+        <li>被課最高比例的所得稅</li>
+        <li>口頭禪：「有沒有保障？」</li>
+      </ul>
+    </div>
+    <div class="esbi-cell b">
+      <div class="esbi-letter">B</div>
+      <div class="esbi-name">Business Owner｜企業主</div>
+      <ul>
+        <li>擁有能自動運作的系統</li>
+        <li>離開後公司仍能賺錢</li>
+        <li>僱用比自己更聰明的人</li>
+        <li>可透過公司合法節稅</li>
+        <li>口頭禪：「我需要的是好團隊」</li>
+      </ul>
+    </div>
+    <div class="esbi-cell s">
+      <div class="esbi-letter">S</div>
+      <div class="esbi-name">Self-Employed｜自雇者</div>
+      <ul>
+        <li>自己就是老闆，也是員工</li>
+        <li>重視獨立、親力親為</li>
+        <li>停止工作 = 停止收入</li>
+        <li>例：自由工作者、診所醫師、律師</li>
+        <li>口頭禪：「要做好就要自己來」</li>
+      </ul>
+    </div>
+    <div class="esbi-cell i">
+      <div class="esbi-letter">I</div>
+      <div class="esbi-name">Investor｜投資者</div>
+      <ul>
+        <li>讓錢為自己工作</li>
+        <li>即使睡覺也在賺錢（被動收入）</li>
+        <li>最高層次的財務自由</li>
+        <li>資本利得稅率通常低於所得稅</li>
+        <li>口頭禪：「我的投資報酬率是多少？」</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>如何從左側跨越到右側？</h3>
+    <ul>
+      <li><strong>E → B：</strong>在本業之外建立小型副業，讓它能在沒有你的情況下運作</li>
+      <li><strong>S → B：</strong>停止「我要親自做才放心」的思維，學習授權與建立流程</li>
+      <li><strong>任何人 → I：</strong>先從小額投資開始，累積財務知識，讓複利時間發揮作用</li>
+      <li>多數人建議路徑：<strong>E → S → B → I</strong>，逐步建立系統與資本</li>
+    </ul>
+  </div>
+
+  <!-- ══════ 適合誰讀 ══════ -->
+  <div class="section-title">
+    <div class="icon">👥</div>
+    <span>本書最適合的讀者</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="card">
+    <ul>
+      <li>剛踏入社會、想建立正確財務觀念的新鮮人</li>
+      <li>覺得「努力工作但存不到錢」的受薪族</li>
+      <li>想開始投資但不知從何入門的初學者</li>
+      <li>想了解有錢人如何思考財富的人</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⚠️ 本書的限制與批評</h3>
+    <ul>
+      <li>概念性強、具體操作方法少，需搭配其他財務書籍補充</li>
+      <li>部分案例（如零頭期款購屋）在台灣法規環境不一定適用</li>
+      <li>「富爸爸」是否真實存在曾受質疑，但核心財務觀念仍有參考價值</li>
+      <li>投資有風險，書中鼓勵承擔風險的觀念需因人而異謹慎評估</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer>
+  <p>資料來源：<em>Rich Dad Poor Dad</em> by Robert T. Kiyosaki（1997）</p>
+  <p style="margin-top:6px;">整理僅供學習參考，不構成投資建議</p>
+</footer>
+
+</body>
+</html>
